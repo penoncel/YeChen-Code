@@ -1,0 +1,40 @@
+# Tomcat
+server:
+  port: 9202
+
+# Spring
+spring:
+  application:
+    # 应用名称
+    name: yechen-gen
+  cloud:
+    nacos:
+      discovery:
+        # 服务注册地址
+        server-addr: 47.100.181.42:8848
+      config:
+        # 配置中心地址
+        server-addr: 47.100.181.42:8848
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.100.181.42:3306/yechen-cloud?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: root
+    password: Zq9867--++
+
+# mybatis配置
+mybatis:
+  # 搜索指定包别名
+  typeAliasesPackage: com.yechen.gen.domain
+  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  mapperLocations: classpath:mapper/**/*.xml
+
+# 代码生成
+gen:
+  # 作者
+  author: yechen
+  # 默认生成包路径 system 需改成自己的模块名称 如 system monitor tool
+  packageName: com.yechen.system
+  # 自动去除表前缀，默认是false
+  autoRemovePre: false
+  # 表前缀（生成类名不会包含表前缀，多个用逗号分隔）
+  tablePrefix: sys_
